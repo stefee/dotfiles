@@ -19,6 +19,15 @@ export TERM=screen-256color
 # PS1
 PS1='$(pwd) ❯ '
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-source "$HOME/.cargo/env"
+
+# rbenv
+eval "$(rbenv init -)"
+
+# cargo
+. "$HOME/.cargo/env"
+
+# kubectl
+source <(kubectl completion zsh)

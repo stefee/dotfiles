@@ -13,12 +13,14 @@ git
 graphicsmagick
 grc
 imagemagick
+kubectl
 mdp
 mosh
 openssl
 rbenv
 redis
 rename
+saml2aws
 spaceman-diff
 terminal-notifier
 tree

@@ -49,5 +49,15 @@ export GIT_EDITOR="code --wait"
 # default programs
 export GHI_PAGER=less
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# rbenv
+eval "$(rbenv init -)"
+
+# cargo
+. "$HOME/.cargo/env"
+
+# kubectl
+source <(kubectl completion zsh)
