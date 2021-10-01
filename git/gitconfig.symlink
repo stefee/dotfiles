@@ -1,47 +1,48 @@
 [user]
-  email = git@sril.email
-  name = Stef
+	email = git@sril.email
+	name = Stef
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [alias]
-  co = checkout
-  st = status -sb
-  diff = diff --patch-with-stat --color-words
-  lo = log --graph --decorate --pretty=oneline --abbrev-commit -5
-  long = log --graph --decorate --pretty=oneline --abbrev-commit
-  push = push --follow-tags
-  wtf = !$ZSH/bin/git-wtf
-  yolo = push --no-verify
-  fr = push --force-with-lease
-  frodo = push --force-with-lease --no-verify
+	co = checkout
+	st = status -sb
+	diff = diff --patch-with-stat --color-words
+	lo = log --graph --decorate --pretty=oneline --abbrev-commit -5
+	long = log --graph --decorate --pretty=oneline --abbrev-commit
+	push = push --follow-tags
+	wtf = !$ZSH/bin/git-wtf
+	yolo = push --no-verify
+	fr = push --force-with-lease
+	frodo = push --force-with-lease --no-verify
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 [help]
-  autocorrect = 5
+	autocorrect = 5
 [push]
-  default = current
+	default = current
 [pull]
-  rebase = false
+	rebase = false
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 [core]
-  editor = code --wait
+	editor = code --wait
+	excludesfile = /Users/stef.jones/.gitignore_global
 [diff]
-  tool = vscode
+	tool = vscode
 [difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-  tool = vscode
+	tool = vscode
 [mergetool "vscode"]
-  cmd = code --wait $MERGED
+	cmd = code --wait $MERGED
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [merge "npm-merge-driver"]
-  name = automatically merge npm lockfiles
-  driver = npx npm-merge-driver merge %A %O %B %P
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P

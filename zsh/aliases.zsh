@@ -16,3 +16,5 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 alias cls='clear'
 
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
+
+alias nvm='fnm'

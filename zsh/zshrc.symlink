@@ -49,9 +49,9 @@ export GIT_EDITOR="code --wait"
 # default programs
 export GHI_PAGER=less
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# fnm
+export PATH=/Users/stef.jones/.fnm:$PATH
+eval "`fnm env`"
 
 # rbenv
 eval "$(rbenv init -)"
