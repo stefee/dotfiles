@@ -3,10 +3,13 @@ awscli
 bash
 cmake
 certbot
+circleci
 coreutils
 cowsay
+difftastic
 exiftool
 findutils
+fnm
 freetype
 gawk
 git
@@ -14,6 +17,7 @@ graphicsmagick
 grc
 imagemagick
 kubectl
+libsodium
 mdp
 mosh
 openssl
@@ -21,10 +25,8 @@ rbenv
 redis
 rename
 saml2aws
-spaceman-diff
 terminal-notifier
 tree
 vim
 wget
-youtube-dl
 zsh

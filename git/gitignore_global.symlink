@@ -3,7 +3,6 @@
 .rake_tasks
 .Spotlight-V100
 .Trashes
-.env
 .netrwhist
 pkg
 .scratch
