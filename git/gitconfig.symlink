@@ -32,7 +32,6 @@
 	excludesfile = /Users/stef.jones/.gitignore_global
 [diff]
 	tool = vscode
-	external = difft
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
