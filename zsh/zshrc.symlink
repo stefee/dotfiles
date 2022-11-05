@@ -2,7 +2,6 @@
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:/Users/$USER/src/dotfiles/bin"
 export PATH="$PATH:/Users/$USER/.config/base16-shell"
-export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
@@ -52,9 +51,6 @@ export GHI_PAGER=less
 # fnm
 export PATH=/Users/stef.jones/.fnm:$PATH
 eval "`fnm env`"
-
-# rbenv
-eval "$(rbenv init -)"
 
 # cargo
 . "$HOME/.cargo/env"

@@ -29,19 +29,8 @@ install_homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-install_nvm() {
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-}
-
 export ZSH=$HOME/.dotfiles
 
 which brew > /dev/null || install_homebrew
 brew update && brew upgrade
 cat "$ZSH"/homebrew/brewfile.txt | xargs -n1 brew install
-
-which nvm > /dev/null || install_nvm
-nvm install --lts
-cat "$ZSH"/npm/packagefile.txt | xargs -n1 npm install -g
