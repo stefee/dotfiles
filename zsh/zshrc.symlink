@@ -49,7 +49,7 @@ export GHI_PAGER=less
 
 # fnm
 export PATH=/Users/stef.jones/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
 
 # cargo
 . "$HOME/.cargo/env"
