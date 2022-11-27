@@ -47,12 +47,15 @@ export GIT_EDITOR="code --wait"
 # default programs
 export GHI_PAGER=less
 
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # fnm
 export PATH=/Users/stef.jones/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 
-# cargo
-. "$HOME/.cargo/env"
-
 # kubectl
 source <(kubectl completion zsh)
+
+# rbenv
+eval "$(rbenv init -)"
