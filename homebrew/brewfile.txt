@@ -1,4 +1,5 @@
 ack
+asciinema
 awscli
 bash
 certbot
@@ -11,11 +12,16 @@ gawk
 git
 graphicsmagick
 imagemagick
+jq
+jfrog-cli
 kubectl
 libsodium
+libuv
 make
 openssl
 saml2aws
+terminal-notifier
+tfenv
 vim
 wget
 zsh
