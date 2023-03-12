@@ -57,5 +57,10 @@ eval "$(fnm env --use-on-cd)"
 # kubectl
 source <(kubectl completion zsh)
 
+# artifactory
+export ARTIFACTORY_USER=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_USER)
+export ARTIFACTORY_API_KEY=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_API_KEY)
+export NPM_AUTH=$(echo -n "$ARTIFACTORY_USER:$ARTIFACTORY_API_KEY" | base64)
+
 # rbenv
 eval "$(rbenv init -)"
