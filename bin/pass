@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo security find-generic-password -ws my.1password.com | pbcopy
