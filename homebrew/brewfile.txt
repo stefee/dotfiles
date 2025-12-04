@@ -10,6 +10,7 @@ exiftool
 fnm
 gawk
 git
+gradle
 graphicsmagick
 imagemagick
 jq

@@ -64,3 +64,22 @@ export NPM_AUTH=$(echo -n "$ARTIFACTORY_USER:$ARTIFACTORY_API_KEY" | base64)
 
 # rbenv
 eval "$(rbenv init -)"
+
+# php
+export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/Stef.Jones/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Docker Desktop
+fpath=(/Users/Stef.Jones/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
+# openjdk
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
