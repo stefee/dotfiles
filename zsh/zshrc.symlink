@@ -5,6 +5,7 @@ export PATH="$PATH:/Users/$USER/.config/base16-shell"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # start zle
 zmodload zsh/zle
