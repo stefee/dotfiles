@@ -34,3 +34,4 @@ export ZSH=$HOME/.dotfiles
 which brew > /dev/null || install_homebrew
 brew update && brew upgrade
 cat "$ZSH"/homebrew/brewfile.txt | xargs -n1 brew install
+cat "$ZSH"/homebrew/caskfile.txt | xargs -n1 brew install --cask

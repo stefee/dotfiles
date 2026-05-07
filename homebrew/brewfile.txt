@@ -9,10 +9,13 @@ cowsay
 exiftool
 fnm
 gawk
+gh
 git
 gradle
 graphicsmagick
+helm
 imagemagick
+jenv
 jq
 jfrog-cli
 kubectl
@@ -20,6 +23,7 @@ libsodium
 libuv
 make
 openssl
+rbenv
 saml2aws
 terminal-notifier
 tfenv

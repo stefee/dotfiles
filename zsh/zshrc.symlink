@@ -79,8 +79,10 @@ esac
 
 # Docker Desktop
 fpath=(/Users/Stef.Jones/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
 
 # openjdk
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
