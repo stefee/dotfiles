@@ -1,21 +1,16 @@
-# if this ever breaks run "$ brew prefix <toolname>"
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$PATH:/Users/$USER/src/dotfiles/bin"
-export PATH="$PATH:/Users/$USER/.config/base16-shell"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-# start zle
-zmodload zsh/zle
-
-# utf-8 & screen
-export LC_ALL="en_GB.UTF-8"
-export TERM=screen-256color
-
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+
+# homebrew (first, so its completions are on fpath before compinit)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# if this ever breaks run "$ brew prefix <toolname>"
+export PATH="$PATH:$ZSH/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
+# utf-8
+export LANG="en_GB.UTF-8"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=$HOME/src
@@ -23,36 +18,27 @@ export PROJECTS=$HOME/src
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
-# base-16
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
-if [ -s $BASE16_SHELL ]; then
-  source $BASE16_SHELL
-fi
+# zsh-notify (cloned by script/zsh)
+[ -s "$HOME/.config/zsh-notify/notify.plugin.zsh" ] && source "$HOME/.config/zsh-notify/notify.plugin.zsh"
 
-antigen bundle marzocchi/zsh-notify
-antigen bundle zsh-users/fizsh
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-# load autosuggest as last
-antigen bundle tarruda/zsh-autosuggestions
+# completions (zsh-completions, Docker Desktop) must be on fpath before compinit
+fpath=($HOMEBREW_PREFIX/share/zsh-completions $HOME/.docker/completions $fpath)
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+autoload -Uz compinit
 compinit -u
 
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# prompt
+autoload -U promptinit && promptinit
+prompt pure
+
 # editor
-export VISUAL="vim"
-export EDITOR="code"
-export GIT_EDITOR="code --wait"
-
-# default programs
-export GHI_PAGER=less
-
-# homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export EDITOR="code --wait"
+export VISUAL="$EDITOR"
 
 # fnm
-export PATH=/Users/stef.jones/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 
 # kubectl
@@ -63,26 +49,24 @@ export ARTIFACTORY_USER=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_USER)
 export ARTIFACTORY_API_KEY=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_API_KEY)
 export NPM_AUTH=$(echo -n "$ARTIFACTORY_USER:$ARTIFACTORY_API_KEY" | base64)
 
-# rbenv
-eval "$(rbenv init -)"
+# sonarqube
+export SONARQUBE_TOKEN=$(cat $HOME/.dotfiles/.secrets/SONARQUBE_TOKEN)
 
-# php
-export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
+# rbenv: shims on PATH now, full init (~0.09s) deferred to the first `rbenv` call
+export PATH="$HOME/.rbenv/shims:$PATH"
+rbenv() {
+  unset -f rbenv
+  eval "$(command rbenv init - zsh)"
+  rbenv "$@"
+}
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# jenv: shims on PATH now, full init (~0.12s) deferred to the first `jenv` call
+export PATH="$HOME/.jenv/shims:$PATH"
+jenv() {
+  unset -f jenv
+  eval "$(command jenv init -)"
+  jenv "$@"
+}
 
-# Docker Desktop
-fpath=(/Users/Stef.Jones/.docker/completions $fpath)
-
-# openjdk
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# must be sourced last
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
