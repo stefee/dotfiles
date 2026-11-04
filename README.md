@@ -9,7 +9,7 @@ Run this:
 ```sh
 cd ~
 mkdir -p src
-git clone https://github.com/srilq/dotfiles.git src/dotfiles
+git clone https://github.com/stefee/dotfiles.git src/dotfiles
 ln -s src/dotfiles .dotfiles
 cd .dotfiles
 script/zsh
