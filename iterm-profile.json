@@ -53,6 +53,7 @@
     "slogin",
     "telnet",
     "zsh",
+    "cat",
     "gcat",
     "git"
   ],
@@ -93,7 +94,7 @@
     "Green Component" : 1
   },
   "Unlimited Scrollback" : false,
-  "Custom Command" : "Yes",
+  "Custom Command" : "No",
   "AWDS Tab Option" : "No",
   "Keyboard Map" : {
     "0xf700-0x260000" : {
@@ -362,7 +363,6 @@
   },
   "AWDS Tab Directory" : "",
   "AWDS Pane Option" : "No",
-  "Command" : "\/usr\/local\/bin\/zsh",
   "Terminal Type" : "xterm-256color",
   "Horizontal Spacing" : 1,
   "Option Key Sends" : 0,

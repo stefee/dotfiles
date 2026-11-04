@@ -45,12 +45,12 @@ eval "$(fnm env --use-on-cd)"
 source <(kubectl completion zsh)
 
 # artifactory
-export ARTIFACTORY_USER=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_USER)
-export ARTIFACTORY_API_KEY=$(cat $HOME/.dotfiles/.secrets/ARTIFACTORY_API_KEY)
+export ARTIFACTORY_USER=$(<$HOME/.dotfiles/.secrets/ARTIFACTORY_USER)
+export ARTIFACTORY_API_KEY=$(<$HOME/.dotfiles/.secrets/ARTIFACTORY_API_KEY)
 export NPM_AUTH=$(echo -n "$ARTIFACTORY_USER:$ARTIFACTORY_API_KEY" | base64)
 
 # sonarqube
-export SONARQUBE_TOKEN=$(cat $HOME/.dotfiles/.secrets/SONARQUBE_TOKEN)
+export SONARQUBE_TOKEN=$(<$HOME/.dotfiles/.secrets/SONARQUBE_TOKEN)
 
 # rbenv: shims on PATH now, full init (~0.09s) deferred to the first `rbenv` call
 export PATH="$HOME/.rbenv/shims:$PATH"
