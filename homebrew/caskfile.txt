@@ -1,4 +1,0 @@
-dbeaver-community
-freelens
-temurin
-visual-studio-code

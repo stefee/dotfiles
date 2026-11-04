@@ -31,7 +31,8 @@ install_homebrew() {
 
 export ZSH=$HOME/.dotfiles
 
-which brew > /dev/null || install_homebrew
-brew update && brew upgrade
-cat "$ZSH"/homebrew/brewfile.txt | xargs -n1 brew install
-cat "$ZSH"/homebrew/caskfile.txt | xargs -n1 brew install --cask
+if ! command -v brew > /dev/null; then
+  install_homebrew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+brew bundle --file="$ZSH/homebrew/Brewfile"
