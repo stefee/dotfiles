@@ -1,0 +1,2 @@
+setopt local_options allexport
+source "${1:-.env}"
