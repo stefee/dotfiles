@@ -1,8 +1,8 @@
 .DS_Store
 ._*
-.rake_tasks
 .Spotlight-V100
 .Trashes
 .netrwhist
-pkg
 .scratch
+**/.claude/settings.local.json
+**/.claude/.cc-writes/

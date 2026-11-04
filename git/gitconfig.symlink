@@ -7,19 +7,12 @@
 [alias]
 	co = checkout
 	st = status -sb
-	diff = diff --patch-with-stat --color-words
 	lo = log --graph --decorate --pretty=oneline --abbrev-commit -5
 	long = log --graph --decorate --pretty=oneline --abbrev-commit
-	push = push --follow-tags
 	wtf = !$ZSH/bin/git-wtf
 	yolo = push --no-verify
 	fr = push --force-with-lease
 	frodo = push --force-with-lease --no-verify
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = true
 [help]
 	autocorrect = 5
 [push]
@@ -27,17 +20,25 @@
 	autoSetupRemote = true
 [pull]
 	rebase = false
+[fetch]
+	prune = true
+[branch]
+	sort = -committerdate
+[rerere]
+	enabled = true
 [credential]
 	helper = osxkeychain
 [core]
 	editor = code --wait
-	excludesfile = /Users/stef.jones/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [diff]
 	tool = vscode
+	algorithm = histogram
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
 	tool = vscode
+	conflictStyle = zdiff3
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 [filter "lfs"]
